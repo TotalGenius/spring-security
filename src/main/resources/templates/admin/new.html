@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h2>Create user</h2>
+    <form th:method="POST" th:action="@{/admin/create}" th:object="${user}">
+        <input type="hidden" th:field="*{id}" id="id">
+        <br>
+        <br>
+        <label for="firstName">first name</label>
+        <input type="text" th:field="*{firstName}" id="firstName">
+        <br>
+        <br>
+        <label for="lastName">last name</label>
+        <input type="text" th:field="*{lastName}" id="lastName">
+        <br>
+        <br>
+        <label for="age">age</label>
+        <input type="text" th:field="*{age}" id="age">
+        <br>
+        <br>
+        <label for="age">username</label>
+        <input type="text" th:field="*{username}" id="username">
+        <br>
+        <br>
+        <label for="age">password</label>
+        <input type="text" th:field="*{password}" id="password">
+        <br>
+        <br>
+        <!--        чекбоксы-->
+        <label for="admin">admin</label>
+        <input type="checkbox" name="adminCheck" value="ROLE_ADMIN" id="admin"/>
+        <br>
+        <label for="usr">user</label>
+        <input type="checkbox" name="userCheck" value="ROLE_USER" id="usr"/>
+        <br>
+        <br>
+        <input type="submit" value="create"/>
+    </form>
+</div>
+<br>
+<form th:method="GET" th:action="@{/logout}">
+    <input type="submit" value="logout"/>
+</form>
+
+</body>
+</html>
