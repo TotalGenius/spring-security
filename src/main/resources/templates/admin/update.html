@@ -38,12 +38,11 @@
         <br>
         <label>Change role</label>
         <br>
-        <label for="admin">admin</label>
-        <input type="checkbox" name="adminCheck" value="ROLE_ADMIN" id="admin"/>
-        <br>
-        <label for="usr">user</label>
-        <input type="checkbox" name="userCheck" value="ROLE_USER" id="usr"/>
-
+        <label for="role">role</label>
+        <select id="role" name="role">
+            <option value="ROLE_ADMIN">Admin</option>
+            <option value="ROLE_USER">User</option>
+        </select>
         <br>
         <br>
         <input type="submit" value="update"/>

@@ -11,6 +11,9 @@
         <input type="hidden" th:field="*{id}" id="id">
         <br>
         <br>
+        <input type="hidden" th:field="*{roles}" id="roles">
+        <br>
+        <br>
         <label for="firstName">first name</label>
         <input type="text" th:field="*{firstName}" id="firstName">
         <br>
@@ -31,12 +34,11 @@
         <input type="text" th:field="*{password}" id="password">
         <br>
         <br>
-        <!--        чекбоксы-->
-        <label for="admin">admin</label>
-        <input type="checkbox" name="adminCheck" value="ROLE_ADMIN" id="admin"/>
-        <br>
-        <label for="usr">user</label>
-        <input type="checkbox" name="userCheck" value="ROLE_USER" id="usr"/>
+        <label for="role">role</label>
+        <select id="role" name="role">
+            <option value="ROLE_ADMIN">Admin</option>
+            <option value="ROLE_USER">User</option>
+        </select>
         <br>
         <br>
         <input type="submit" value="create"/>

@@ -20,17 +20,17 @@ public class User implements UserDetails {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "age")
+
     private int age;
-    @Column(name = "username")
+
     private String username;
-    @Column(name = "password")
+
     private String password;
     @Fetch(FetchMode.JOIN)
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany()
     @JoinTable(name = "user_role",
-    joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "role_id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
     public User() {
@@ -42,41 +42,6 @@ public class User implements UserDetails {
         this.age = age;
         this.username = username;
         this.password = password;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.getRoles();
-    }
-
-    @Override
-    public String getPassword() {
-        return this.getpassword();
-    }
-
-    @Override
-    public String getUsername() {
-        return this.getusername();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
     }
 
     public Long getId() {
@@ -115,11 +80,46 @@ public class User implements UserDetails {
         return username;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getpassword() {
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.getRoles();
+    }
+
+    @Override
+    public String getPassword() {
+        return this.getPass();
+    }
+
+    @Override
+    public String getUsername() {
+        return this.getusername();
+    }
+
+    public String getPass() {
         return this.password;
     }
 

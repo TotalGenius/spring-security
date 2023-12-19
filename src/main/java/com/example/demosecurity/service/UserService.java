@@ -7,9 +7,10 @@ import java.util.Optional;
 
 public interface UserService {
     List<User> getAll();
+
     User get(Long id);
 
-    void save(User user);
+    void save(User user, String roleSelect);
 
     void delete(Long id);
 
